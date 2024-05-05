@@ -1,0 +1,247 @@
+/*=========================================================================================
+    Team CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.single-team {
+    cursor: pointer;
+    .team-img-box {
+        width: 100%;
+        height: 300px;
+    }
+
+    .team-img-box img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .team-content {
+        padding: 20px;
+        background: #fff;
+        -webkit-box-shadow: 1px 1px 8px rgba(102, 102, 102, 0.1);
+        box-shadow: 1px 1px 8px rgba(102, 102, 102, 0.1);
+        text-align: center;
+        transition: 0.3s ease all;
+        -webkit-transition: 0.3s ease all;
+        -moz-transition: 0.3s ease all;
+        -ms-transition: 0.3s ease all;
+        -o-transition: 0.3s ease all;
+
+        .team-name {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 100%;
+            color: #344054;
+            text-align: center;
+            margin-bottom: 12px;
+            transition: 0.3s ease all;
+            -webkit-transition: 0.3s ease all;
+            -moz-transition: 0.3s ease all;
+            -ms-transition: 0.3s ease all;
+            -o-transition: 0.3s ease all;
+        }
+
+        .team-designation {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            text-align: center;
+            font-size: 14px;
+            line-height: 100%;
+            color: #667085;
+            margin-bottom: 16px;
+            transition: 0.3s ease all;
+            -webkit-transition: 0.3s ease all;
+            -moz-transition: 0.3s ease all;
+            -ms-transition: 0.3s ease all;
+            -o-transition: 0.3s ease all;
+        }
+
+        .team-social {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            gap: 8px;
+            li {
+                a {
+                    width: 24px;
+                    height: 24px;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    color: #fff;
+                    background: #667085;
+                    border-radius: 50%;
+                    font-style: 14px;
+                    transition: 0.3s ease all;
+                    -webkit-transition: 0.3s ease all;
+                    -moz-transition: 0.3s ease all;
+                    -ms-transition: 0.3s ease all;
+                    -o-transition: 0.3s ease all;
+                }
+            }
+        }
+    }
+    &:hover {
+        .team-content {
+            background: variable.$grannyApple-600;
+
+            .team-name {
+                color: #fff;
+            }
+
+            .team-designation {
+                color: #fff;
+            }
+
+            .team-social {
+                li {
+                    a {
+                        width: 24px;
+                        height: 24px;
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                        color: variable.$grannyApple-600;
+                        background: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Home Team Section End
+
+.single-team-member {
+    padding: 26px;
+    background: #ffffff;
+    -webkit-box-shadow: 1px 2px 5px rgba(132, 132, 132, 0.06);
+    box-shadow: 1px 2px 5px rgba(132, 132, 132, 0.06);
+    border-radius: 30px;
+
+    .teams-img-box {
+        height: 360px;
+        margin-bottom: 24px;
+        border-radius: 26px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+        .teams-socials {
+            position: absolute;
+            content: '';
+            bottom: 25px;
+            right: -100px;
+            transition: 0.5s ease all;
+            -webkit-transition: 0.5s ease all;
+            -moz-transition: 0.5s ease all;
+            -ms-transition: 0.5s ease all;
+            -o-transition: 0.5s ease all;
+
+            li {
+                a {
+                    width: 32px;
+                    height: 32px;
+                    background: #ffffff94;
+                    margin-bottom: 10px;
+                    border-radius: 50%;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    color: #344054;
+                    -webkit-transition: 0.3s ease all;
+                    -o-transition: 0.3s ease all;
+                    transition: 0.3s ease all;
+
+                    &:hover {
+                        background: variable.$orange;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .teams-content-box {
+        .teams-member-name {
+            font-family: 'Syne';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 34px;
+            color: #344054;
+            text-align: center;
+            margin-bottom: 4px;
+            display: block;
+            transition: 0.3s ease all;
+            -webkit-transition: 0.3s ease all;
+            -moz-transition: 0.3s ease all;
+            -ms-transition: 0.3s ease all;
+            -o-transition: 0.3s ease all;
+
+            &:hover {
+                color: variable.$orange;
+            }
+        }
+
+        .teams-member-designation {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 26px;
+            color: #667085;
+            text-align: center;
+        }
+    }
+
+    &:hover {
+        .teams-socials {
+            position: absolute;
+            content: '';
+            right: 25px;
+        }
+    }
+}
+
+.team-slider .single-team-member .teams-img-box {
+    height: 260px !important;
+}
+/*=========================================================================================
+    Team CSS End
+ ==========================================================================================*/

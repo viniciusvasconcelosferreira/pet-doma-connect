@@ -1,0 +1,401 @@
+/*=========================================================================================
+    Responsive CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+@media screen and (max-width: 1600px) {
+    .hero .hero-content .hero-title {
+        font-size: 50px;
+        line-height: 65px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .form-text {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .mission-img-box {
+        width: 100%;
+        height: auto;
+    }
+
+    .mission-img-box .mission-sm-img-1,
+    .mission-img-box .mission-sm-img-2 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .section-content-box {
+        gap: 24px;
+    }
+
+    .single-services-2 {
+        gap: 20px;
+    }
+
+    .services-icon {
+        width: 80px;
+    }
+
+    .services-name {
+        font-size: 30px;
+    }
+
+    .section-side-title,
+    .section-title-box .section-title,
+    .section-side-title-box h2 {
+        font-size: 42px;
+        line-height: 50px;
+    }
+
+    .slider-btn-box .slick-arrow {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .about-us-img-box .aui-cat {
+        right: -80px;
+        width: 200px;
+    }
+
+    .safe-box {
+        display: none;
+    }
+
+    .hero-1-bg {
+        display: none;
+    }
+
+    .hero-1 {
+        background: #98ddb6;
+        padding-bottom: 100px;
+    }
+
+    .accordion-body {
+        padding: 10px 0;
+    }
+
+    .accordion-button {
+        font-size: 20px;
+        padding: 16px 0;
+    }
+
+    .accordion-body {
+        font-size: 16px;
+    }
+
+    .navbar-expand-xl .navbar-nav {
+        gap: 0px;
+    }
+
+    .bd-title {
+        font-size: 36px;
+    }
+
+    .bd-writter-name {
+        font-size: 18px;
+    }
+
+    .bd-pst p {
+        font-size: 18px;
+    }
+
+    .page-title {
+        font-size: 42px;
+    }
+
+    .aui-lg-3 {
+        display: none;
+    }
+
+    .aui-lg-2 {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .subscribe-cat-2 {
+        display: none;
+    }
+
+    .hero .hero-content .hero-title {
+        font-size: 42px;
+        line-height: 60px;
+    }
+
+    .section-title-box {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .about-us-img-box-2 {
+        width: 100%;
+    }
+
+    .user-common {
+        padding-top: 50px;
+    }
+
+    .features-dot {
+        display: none;
+    }
+
+    .services-name {
+        font-size: 26px;
+    }
+
+    .single-customer {
+        padding: 30px 20px;
+    }
+
+    .customer-number {
+        font-size: 40px;
+        line-height: 55px;
+    }
+
+    .customer-category {
+        font-size: 20px;
+    }
+
+    .aui-lg-2 {
+        height: auto;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .subscribe-left,
+    .subscribe-right {
+        display: none;
+    }
+
+    .single-blog .blog-top {
+        height: 250px;
+    }
+
+    .slider-btn-box .slick-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .about-us-img-box,
+    .features-lg-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .about-us-img-box .aui-dot,
+    .about-us-img-box .aui-cat,
+    .features-sm-img {
+        display: none;
+    }
+
+    .section-side-title,
+    .section-title-box .section-title,
+    .section-side-title-box h2 {
+        font-size: 36px;
+        line-height: 50px;
+    }
+
+    .bd-quote-img {
+        bottom: 10px;
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-side-title-box h2 {
+        text-align: left;
+    }
+
+    .user-profile-form {
+        padding: 40px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    .subscribe-form-box {
+        height: 64px;
+    }
+
+    .page-title {
+        font-size: 36px;
+    }
+
+    .section-side-title,
+    .section-title-box .section-title,
+    .section-side-title-box h2 {
+        font-size: 32px;
+        line-height: 50px;
+    }
+
+    .bd-post-desc {
+        gap: 20px;
+    }
+
+    .bd-writter-name {
+        font-size: 14px;
+    }
+
+    .bd-lg-img {
+        border: 5px solid #fff;
+    }
+
+    .bd-pst p {
+        font-size: 14px;
+    }
+
+    .header-2 {
+        margin-top: 20px;
+    }
+
+    .page-title-area {
+        height: 400px;
+    }
+
+    .page-title-area {
+        margin-top: 100px;
+    }
+
+    .subscribe-box-2 .subscribe-content .subscribe-form-box {
+        width: 100%;
+    }
+
+    .testimonial-img-box img {
+        width: 100%;
+        height: 300px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 0px 30px 0px 30px;
+    }
+
+    .single-testimonial {
+        padding: 30px;
+    }
+
+    .subscribe-form-box {
+        width: 90%;
+    }
+
+    .bolg-details-bottom {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 20px;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start;
+    }
+
+    .bd-social-collection li a {
+        border: 1px solid #a5abb3;
+    }
+
+    .footer-bottom {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .home-contact-title {
+        font-size: 26px;
+    }
+
+    .working-hours-box .working-title {
+        font-size: 26px;
+    }
+
+    .google-signin-box a {
+        padding: 10px 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section-side-title,
+    .section-title-box .section-title,
+    .section-side-title-box h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .form-text {
+        font-size: 16px;
+    }
+
+    .hero .hero-content .hero-title {
+        font-size: 36px;
+        line-height: 55px;
+    }
+
+    .error-title {
+        font-size: 45px;
+    }
+
+    .remember-box {
+        gap: 8px;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .form-top-box .form-name {
+        font-size: 32px;
+    }
+
+    .form-text {
+        font-size: 18px;
+    }
+
+    .pricing-top {
+        padding: 40px 30px;
+    }
+
+    .single-pricing .pricing-top .pricing-rate {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .section-title-box {
+        margin-bottom: 30px;
+    }
+
+    .bd-pst {
+        display: none;
+    }
+
+    .page-title-area {
+        height: 320px;
+    }
+
+    .page-title {
+        font-size: 42px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-contact-title {
+        font-size: 22px;
+    }
+
+    .working-hours-box .working-title {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+}
+/*=========================================================================================
+    Responsive CSS End
+ ==========================================================================================*/

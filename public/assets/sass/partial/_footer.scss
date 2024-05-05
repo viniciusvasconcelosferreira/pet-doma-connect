@@ -1,0 +1,191 @@
+/*=========================================================================================
+    Footer CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.footer-area {
+    position: relative;
+}
+
+.footer-bg {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.row.footer-middle {
+    position: relative;
+    z-index: 3;
+    padding: 80px 0;
+}
+
+.footer-content p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.footer-social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-social li a {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    font-size: 18px;
+    color: #fff;
+    background: #667085;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-content {
+    width: 80%;
+}
+
+.footer-menu .menu-category {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+.footer-menu-list li a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff;
+}
+
+.footer-menu-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer-menu {
+    .contact-info-collection li {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        color: #ffffff;
+    }
+
+    p {
+        span {
+            width: 24px;
+            height: 24px;
+            color: #fff;
+        }
+    }
+}
+
+.footer-devider {
+    border-top: 1px solid #fff;
+    position: relative;
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.footer-bottom-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+}
+
+.footer-copyright {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #ffffff;
+}
+
+.footer-bottom-link a {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    color: #ffffff;
+}
+
+.footer-bottom-link p {
+    color: #fff;
+}
+
+// Footer 2
+.footer-2 {
+    .footer-area {
+        position: relative;
+        padding-top: 100px;
+        z-index: 1;
+    }
+}
+/*=========================================================================================
+    Footer CSS End
+ ==========================================================================================*/

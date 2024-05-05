@@ -1,0 +1,176 @@
+/*=========================================================================================
+    Pricing CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.single-pricing {
+    background: #ffffff;
+    -webkit-box-shadow: 0px 2px 8px rgba(123, 123, 123, 0.06);
+    box-shadow: 0px 2px 8px rgba(123, 123, 123, 0.06);
+    border-radius: 20px;
+
+    .pricing-top {
+        padding: 50px 30px;
+        text-align: center;
+
+        .pricing-name {
+            font-family: 'Syne';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 32px;
+            line-height: 42px;
+            color: #170f49;
+            margin-bottom: 18px;
+        }
+
+        .pricing-rate {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 58px;
+            line-height: 68px;
+            color: #170f49;
+        }
+
+        .pricing-rate span {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 30px;
+            color: #6f6c90;
+        }
+    }
+
+    .pricing-bottom {
+        padding: 0 30px 45px 30px;
+
+        .pricing-collections {
+            li {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                margin-bottom: 18px;
+
+                &:last-child {
+                    margin-bottom: 40px;
+                }
+
+                p {
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 28px;
+                    color: #344054;
+                }
+            }
+        }
+    }
+}
+
+.center-single-pricing {
+    background: #2f2d53 !important;
+    margin-top: -30px;
+
+    .pricing-top {
+        padding: 50px 30px;
+        text-align: center;
+
+        .pricing-name {
+            color: #fff;
+        }
+
+        .pricing-rate {
+            color: #fff;
+        }
+
+        .pricing-rate span {
+            color: #fff;
+        }
+    }
+
+    .pricing-bottom {
+        .pricing-collections {
+            li {
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.toggle-btn {
+    display: flex;
+    gap: 16px;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 90px;
+
+    .day {
+        color: #667085;
+        font-size: 20px;
+        font-family: Syne;
+        font-weight: 600;
+        line-height: 30px;
+    }
+
+    .hour {
+        color: #344054;
+        font-size: 20px;
+        font-family: Syne;
+        font-weight: 600;
+        line-height: 30px;
+    }
+    input[type='checkbox'] {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+
+    label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 50px;
+        height: 26px;
+        background: #d0d5dd;
+        display: block;
+        border-radius: 50px;
+        position: relative;
+        margin-bottom: 0;
+    }
+
+    label:after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 5px;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border-radius: 90%;
+        transition: 0.3s;
+    }
+
+    input:checked + label {
+        background: variable.$orange;
+    }
+
+    input:checked + label:after {
+        left: calc(100% - 5px);
+        transform: translateX(-100%);
+    }
+
+    label:active:after {
+        width: 30px;
+    }
+}
+
+/*=========================================================================================
+    Pricing CSS End
+ ==========================================================================================*/

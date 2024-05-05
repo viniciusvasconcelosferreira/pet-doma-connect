@@ -1,0 +1,60 @@
+/*=========================================================================================
+    Happy Customer CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.happy-customer-area {
+    background: url('../images/customer-bg-2.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.customer-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.single-customer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.customer-number {
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 58px;
+    line-height: 68px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.customer-category {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 130%;
+    text-align: center;
+    color: #f2f4f7;
+}
+/*=========================================================================================
+    Happy Customer CSS End
+ ==========================================================================================*/

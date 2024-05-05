@@ -1,0 +1,45 @@
+/*=========================================================================================
+    Typography CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+html,
+body {
+    font-family: variable.$inter;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: variable.$syne;
+    color: #2f2d53;
+}
+
+a {
+    transition: 0.3s ease all;
+    -webkit-transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -ms-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+
+    &:hover {
+        color: v;
+        cursor: pointer;
+    }
+}
+
+p {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #667085;
+}
+
+/*=========================================================================================
+    Typography CSS End
+ ==========================================================================================*/

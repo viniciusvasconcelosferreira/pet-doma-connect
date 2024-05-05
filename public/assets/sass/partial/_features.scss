@@ -1,0 +1,111 @@
+/*=========================================================================================
+    Features CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.single-feature {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.fc-title {
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #1d2939;
+    margin-bottom: 8px;
+}
+
+.fc-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #667085;
+}
+
+.features-lg-img {
+    position: relative;
+    height: 700px;
+    width: 570px;
+    border-radius: 180px 0px 0px 20px;
+    text-align: right;
+    margin-left: auto;
+
+    .safe-box {
+        bottom: 30px !important;
+        left: 30px !important;
+    }
+}
+
+.features-lg {
+    width: 100%;
+    height: 100%;
+    border-radius: 180px 0px 0px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.features-dot {
+    position: absolute;
+    content: '';
+    top: -18px;
+    left: -15px;
+    z-index: 1;
+}
+
+.features-lg-img::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: #ffefea;
+    top: 18px;
+    left: 18px;
+    z-index: -1;
+    border-radius: 180px 0px 0px 20px;
+}
+
+.pet-care-img {
+    width: 100%;
+    height: 563px;
+    border-radius: 200px;
+    overflow: hidden;
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    -ms-border-radius: 200px;
+    -o-border-radius: 200px;
+    border: 5px solid variable.$orange;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+}
+
+.features-img-box {
+    width: 60px;
+    height: 60px;
+}
+/*=========================================================================================
+    Features CSS End
+ ==========================================================================================*/

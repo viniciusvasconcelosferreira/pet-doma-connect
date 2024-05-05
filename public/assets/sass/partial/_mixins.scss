@@ -1,0 +1,68 @@
+/*=========================================================================================
+    Mixins CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+// Mixins
+
+// Gradient Mixins
+
+// Transition Mixins
+@mixin transition($what, $time, $how) {
+    -webkit-transition: $what $time $how;
+    -o-transition: $what $time $how;
+    transition: $what $time $how;
+}
+// Use Example : @include transition(all,.5s,ease);
+
+// generic transform mixin
+@mixin transform($transforms) {
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+// Use Example : @include transform(scale(0));
+
+// Animation Mixin
+@mixin animation(
+    $animationName,
+    $animationDelay,
+    $animationDuration,
+    $timingFunction
+) {
+    -webkit-animation: $animationName $animationDelay $animationDuration
+        $timingFunction;
+    animation: $animationName $animationDelay $animationDuration $timingFunction;
+}
+
+// Mixin
+@mixin para-style {
+    font-size: 16px;
+    text-align: center;
+}
+
+@mixin heading-style($size, $align) {
+    font-size: $size;
+    text-align: $align;
+}
+
+@mixin text-size($value) {
+    @if ($value == sm) {
+        font-size: 12px;
+    } @else if($value == md) {
+        font-size: 16px;
+    } @else if($value == lg) {
+        font-size: 18px;
+    } @else {
+        font-size: none;
+    }
+}
+
+.my-font {
+    @include text-size(lg);
+}
+
+/*=========================================================================================
+    Mixins CSS End
+ ==========================================================================================*/

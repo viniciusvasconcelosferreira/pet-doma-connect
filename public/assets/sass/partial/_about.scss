@@ -1,0 +1,73 @@
+/*=========================================================================================
+    About Us CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.about-us-img-box {
+    width: 370px;
+    height: 450px;
+    border-radius: 18px;
+    position: relative;
+
+    .aui-lg {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        position: relative;
+        z-index: 2;
+    }
+
+    .aui-dot {
+        position: absolute;
+        content: '';
+        top: -80px;
+        right: -80px;
+        z-index: 1;
+    }
+
+    .aui-cat {
+        position: absolute;
+        content: '';
+        bottom: -30px;
+        right: -130px;
+        z-index: 3;
+    }
+}
+
+// about 2
+.about-us-img-box-2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 26px;
+    position: relative;
+}
+
+.aui-lg-2 {
+    height: 500px;
+    width: 300px;
+    border-radius: 50px;
+    z-index: 3;
+}
+
+.aui-lg-3 {
+    height: 400px;
+    width: 300px;
+    border-radius: 50px;
+    z-index: 3;
+}
+
+.aui-dot-icon {
+    position: absolute;
+    bottom: 0;
+    right: 215px;
+    z-index: 1;
+}
+
+/*=========================================================================================
+    About Us CSS End
+ ==========================================================================================*/

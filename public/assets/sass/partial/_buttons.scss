@@ -1,0 +1,106 @@
+/*=========================================================================================
+    Button CSS Start
+ ==========================================================================================*/
+@use '../utility/variables' as variable;
+
+.btn {
+    padding: 16px 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    transition: 0.3 ease all;
+    -webkit-transition: 0.3 ease all;
+    -moz-transition: 0.3 ease all;
+    -ms-transition: 0.3 ease all;
+    -o-transition: 0.3 ease all;
+}
+
+.btn-orange {
+    color: #ffffff;
+    background-color: variable.$orange;
+    border: 1px solid variable.$orange;
+
+    &:hover {
+        color: #ffffff;
+        background-color: variable.$orange;
+        border: 1px solid variable.$orange;
+    }
+}
+
+.btn-granny-apple-600 {
+    color: #ffffff;
+    background-color: variable.$grannyApple-600;
+    border: 1px solid variable.$grannyApple-600;
+
+    &:hover {
+        color: #ffffff;
+        background-color: variable.$grannyApple-600;
+        border: 1px solid variable.$grannyApple-600;
+    }
+}
+
+.btn-yellow {
+    color: #1d2939;
+    background-color: variable.$yellow;
+    border: 1px solid variable.$yellow;
+
+    &:hover {
+        color: #1d2939;
+        background-color: variable.$yellow;
+        border: 1px solid variable.$yellow;
+    }
+}
+
+.btn-iguana-green {
+    color: #1d2939;
+    background-color: variable.$jade-400;
+    border: 1px solid variable.$jade-400;
+
+    &:hover {
+        color: #1d2939;
+        background-color: variable.$jade-400;
+        border: 1px solid variable.$jade-400;
+    }
+}
+
+.btn-orange-outline {
+    color: variable.$orange;
+    background-color: transparent;
+    border: 1px solid variable.$orange;
+
+    &:hover {
+        color: variable.$orange;
+        background-color: transparent;
+        border: 1px solid variable.$orange;
+    }
+}
+
+.btn-granny-apple-600-outline {
+    color: variable.$grannyApple-600;
+    background-color: transparent;
+    border: 1px solid variable.$grannyApple-600;
+
+    &:hover {
+        color: variable.$grannyApple-600;
+        background-color: transparent;
+        border: 1px solid variable.$grannyApple-600;
+    }
+}
+
+.btn-white {
+    color: #2f2d53;
+    background-color: #fff;
+    border: 1px solid #fff;
+
+    &:hover {
+        color: #2f2d53;
+        background-color: #fff;
+        border: 1px solid #fff;
+    }
+}
+
+/*=========================================================================================
+    Button CSS End
+ ==========================================================================================*/

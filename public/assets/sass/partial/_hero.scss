@@ -1,0 +1,202 @@
+/*=========================================================================================
+    Hero CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 120px 0 80px 0;
+
+    .hero-area {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 24px;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start;
+
+        .hero-title {
+            font-family: 'Syne';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 58px;
+            line-height: 68px;
+            color: #2f2d53;
+        }
+
+        .hero-text {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 26px;
+            color: #3E4552;
+        }
+
+        .happy-client-box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            gap: 20px;
+
+            .hc-img-box {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .hc-single-img {
+                margin-left: -16px;
+            }
+
+            .hc-single-img:first-child {
+                margin-left: 0;
+            }
+
+            .hc-text-box {
+                h4 {
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: #1d2939;
+                }
+
+                p {
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 12px;
+                    line-height: 22px;
+                    color: #475467;
+                }
+            }
+        }
+    }
+}
+
+// Hero 1
+.hero-1 {
+    position: relative;
+    margin-bottom: 60px;
+    padding-bottom: 160px;
+
+    .hero-1-bg {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        object-fit: cover;
+    }
+}
+
+// Hero 2
+.hero-2 {
+    background: #ffded5;
+    padding: 180px 0 80px 0;
+
+    .hero-content .hero-text {
+        width: 80%;
+    }
+}
+
+.safe-icon-box {
+    width: 70px;
+    height: 70px;
+    background: #f2fbf6;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.hero-img-box-2 {
+    position: relative;
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.safe-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 20px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 15px;
+    width: 270px;
+    position: absolute;
+    content: '';
+    bottom: 125px;
+    left: -80px;
+    border-radius: 0px 15px;
+    background: #fff;
+    -webkit-box-shadow: 1px 6px 15px 0px rgba(87, 87, 87, 0.1),
+        -2px -1px 8px 0px rgba(154, 154, 154, 0.06);
+    box-shadow: 1px 6px 15px 0px rgba(87, 87, 87, 0.1),
+        -2px -1px 8px 0px rgba(154, 154, 154, 0.06);
+    z-index: 3;
+}
+
+.safe-content {
+    text-align: left;
+    h4 {
+        color: #344054;
+        font-size: 24px;
+        font-family: Syne;
+        font-weight: 700;
+        line-height: 34px;
+    }
+
+    p {
+        color: #475467;
+        font-size: 16px;
+        font-family: Syne;
+        font-weight: 500;
+        line-height: 34px;
+    }
+}
+/*=========================================================================================
+    Hero CSS End
+ ==========================================================================================*/

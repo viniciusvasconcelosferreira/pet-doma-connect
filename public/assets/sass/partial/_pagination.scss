@@ -1,0 +1,60 @@
+/*=========================================================================================
+    Pagination CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+.pagination-box ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 20px;
+
+    li {
+        .pagination-link {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border-radius: 4px;
+            border: 1px solid #98a2b3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #98a2b3;
+            font-size: 12px;
+            transition: 0.3s ease all;
+            -webkit-transition: 0.3s ease all;
+            -moz-transition: 0.3s ease all;
+            -ms-transition: 0.3s ease all;
+            -o-transition: 0.3s ease all;
+        }
+        .pagination-link.active {
+            color: #fff !important;
+            background: variable.$grannyApple-600 !important;
+            border-color: variable.$grannyApple-600 !important;
+
+            a {
+                font-style: normal;
+                font-weight: 500;
+                font-size: 18px;
+                text-align: center;
+                color: #3e4756;
+            }
+        }
+
+        .prev.active,
+        .next.active {
+            color: variable.$grannyApple-600 !important;
+            background: transparent !important;
+            border: 1px solid #98a2b3 !important;
+        }
+    }
+}
+/*=========================================================================================
+    Pagination CSS Start
+ ==========================================================================================*/

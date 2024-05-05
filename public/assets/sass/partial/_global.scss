@@ -1,0 +1,353 @@
+/*=========================================================================================
+    Global CSS Start
+ ==========================================================================================*/
+@use '../utility/index' as variable;
+
+html,
+body {
+    background: variable.$lightPink;
+}
+
+.section {
+    padding-bottom: 100px;
+}
+
+.mobile-show {
+    display: none !important;
+}
+
+.mobile-lg-show {
+    display: none;
+}
+
+.column-2 {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+
+/* Text Color */
+.text-orange {
+    color: variable.$orange !important;
+}
+
+// Background Color
+.bg-lightPink {
+    background: variable.$lightPink;
+}
+
+.bg-jade-500{
+    background: variable.$jade-500;
+}
+
+.bg-pink {
+    background: variable.$pink;
+}
+
+.bg-jade-200 {
+    background: variable.$jade-200;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+/* Slick Slider */
+.slider-btn-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 10px;
+
+    .slick-arrow {
+        background: variable.$grannyApple-600;
+        -webkit-box-shadow: 0px 50px 80px rgba(0, 0, 0, 0.05);
+        box-shadow: 0px 50px 80px rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .slick-arrow.slick-disabled {
+        background: #ffffff;
+        color: variable.$grannyApple-600;
+    }
+}
+
+.slick-slider {
+    margin: 0 10px;
+    padding: 0;
+}
+
+.slick-slide {
+    margin: 0 10px;
+    padding: 0;
+}
+
+.slick-dots {
+    bottom: -40px !important;
+}
+
+/* Page Title Box Start */
+.page-banner {
+    padding: 20px;
+}
+
+.page-title-area {
+    border-radius: 30px;
+    padding: 30px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.banner-bg {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.page-title {
+    font-family: 'Syne';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #ffffff;
+    position: relative;
+    z-index: 4;
+    margin-bottom: 12px;
+}
+
+.breadcrumb-item a {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+    display: inherit;
+}
+
+.page-breadcrumb {
+    position: relative;
+    z-index: 4;
+}
+
+.page-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+}
+
+.page-breadcrumb .breadcrumb-item.active {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #fff;
+}
+
+/* Page Title Box End */
+
+/* Form */
+label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    color: #1d2939;
+    margin-bottom: 12px;
+}
+
+.form-check-label {
+    margin-bottom: unset !important;
+}
+
+.selectpicker {
+    height: 100%;
+    border-radius: 6px;
+}
+
+.selectpicker:focus-visible {
+    outline: 0;
+    border-radius: 6px;
+}
+
+.form-check-label {
+    font-weight: 400;
+    font-size: 18px;
+    color: #6c688a;
+    line-height: initial;
+}
+
+.form-check-input:focus {
+    border-color: variable.$orange;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.shop-p-filter.form-select {
+    border: 0;
+    background: transparent;
+    width: 70%;
+}
+
+.form-select:focus {
+    border-color: transparent;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #0a033c;
+}
+
+.form-label span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #9d9ab1;
+}
+
+.form-control,
+.form-select {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    padding: 18px 22px;
+    background: #f2f4f7;
+    border: 1px solid #e4e7ec;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+::-webkit-input-placeholder {
+    color: #98a2b3;
+}
+
+::-moz-placeholder {
+    color: #98a2b3;
+}
+
+:-ms-input-placeholder {
+    color: #98a2b3;
+}
+
+::-ms-input-placeholder {
+    color: #98a2b3;
+}
+
+::placeholder {
+    color: #98a2b3;
+}
+
+.form-select {
+    color: #98a2b3 !important;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: variable.$orange;
+    outline: 0;
+    border: 1px solid variable.$orange;
+    box-shadow: none;
+}
+
+.input-group-prepend {
+    border: 1px solid #e7e6ec;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.selectpicker {
+    color: #6c688a;
+    padding: 16px 12px;
+    border: 0;
+}
+
+.input-group-text {
+    background-color: #fff;
+    border: 1px solid #e7e6ec;
+    padding: 16px 12px;
+}
+
+.slick-dots li button:before {
+    font-size: 8px;
+}
+
+.slick-dots li.slick-active button:before {
+    color: variable.$grannyApple-600;
+    font-size: 12px;
+}
+
+/* Scroll To Top */
+.scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: red;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: variable.$grannyApple-600;
+    color: #fff;
+    border-radius: 6px;
+}
+
+/*=========================================================================================
+    Global CSS End
+ ==========================================================================================*/
