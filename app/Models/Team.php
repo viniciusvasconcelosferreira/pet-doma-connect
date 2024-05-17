@@ -4,28 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Service extends Model
+class Team extends Model
 {
-    use HasFactory, HasSlug;
+    use HasFactory;
 
-    protected $table = 'services';
+    protected $table = 'teams';
 
     protected $fillable = [
         'name',
-        'description',
-        'details',
-        'icon',
-        'slug',
+        'function',
+        'social_media',
+        'photo',
+        'slug'
     ];
 
-    protected $appends = ['full_icon'];
+    protected $appends = ['full_photo'];
 
-    public function getFullIconAttribute()
+    public function getFullPhotoAttribute()
     {
-        return 'assets/images/services/' . $this->attributes['icon'];
+        return 'assets/images/' . $this->attributes['photo'];
     }
 
     /**

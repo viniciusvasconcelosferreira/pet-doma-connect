@@ -17,4 +17,20 @@ class Feature extends Model
         'features',
         'image',
     ];
+
+    protected $appends = ['full_image', 'full_features'];
+
+    public function getFullImageAttribute()
+    {
+        return 'assets/images/' . $this->attributes['image'];
+    }
+
+    public function getFullFeaturesAttribute()
+    {
+        $features = json_decode($this->attributes['features'], true);
+        return array_map(function ($feature) {
+            $feature['icon'] = asset('assets/images/icons/' . $feature['icon']);
+            return $feature;
+        }, $features);
+    }
 }

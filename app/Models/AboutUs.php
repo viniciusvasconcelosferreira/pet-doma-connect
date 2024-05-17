@@ -21,4 +21,14 @@ class AboutUs extends Model
         'client_photos',
         'active'
     ];
+
+    protected $appends = ['full_client_photos'];
+
+    public function getFullClientPhotosAttribute()
+    {
+        $clientPhotos = json_decode($this->attributes['client_photos']);
+        return array_map(function ($photo) {
+            return 'assets/images/' . $photo;
+        }, $clientPhotos);
+    }
 }

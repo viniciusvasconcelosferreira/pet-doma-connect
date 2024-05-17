@@ -8,6 +8,7 @@ use App\Models\Goal;
 use App\Models\HeroSection;
 use App\Models\HomeSections;
 use App\Models\Service;
+use App\Models\Team;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,7 @@ class HomeController extends Controller
         $services = Service::take(4)->get();
         $features = Feature::first();
         $goals = Goal::first();
-        return view('frontend.home.index', compact('active_sessions', 'hero_content', 'about_us', 'services', 'features', 'goals'));
+        $team = Team::take(4)->get();
+        return view('frontend.home.index', compact('active_sessions', 'hero_content', 'about_us', 'services', 'features', 'goals', 'team'));
     }
 }

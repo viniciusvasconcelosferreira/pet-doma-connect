@@ -16,7 +16,7 @@ class AboutUsSeeder extends Seeder
             'title' => "It's our pleasure to care your pets",
             'subtitle' => 'Ultimately, pet care and veterinary services are critical for ensuring that our furry, feathered, or scaled friends lead happy, healthy lives.',
             'highlighted_services' => json_encode(["Best Veterinarian's", "Bath and Grooming", "24/7 Hour Care", "Best Foods"]),
-            'client_photos' => json_encode(['assets/images/about-us-lg-default.png', 'assets/images/about-us-sm-default.png']),
+            'client_photos' => json_encode(['about-us-lg-default.png', 'about-us-sm-default.png']),
             'created_at' => now(),
             'updated_at' => now()
         ]);

@@ -20,4 +20,19 @@ class HeroSection extends Model
         'link_button',
         'satisfied_customers'
     ];
+
+    protected $appends = ['full_featured_photo', 'full_sub_featured_photos'];
+
+    public function getFullFeaturedPhotoAttribute()
+    {
+        return 'assets/images/' . $this->attributes['featured_photo'];
+    }
+
+    public function getFullSubFeaturedPhotosAttribute()
+    {
+        $subFeaturedPhotos = json_decode($this->attributes['sub_featured_photos']);
+        return array_map(function ($photo) {
+            return 'assets/images/' . $photo;
+        }, $subFeaturedPhotos);
+    }
 }
