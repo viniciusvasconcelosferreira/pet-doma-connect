@@ -19,9 +19,7 @@ class HeroSection extends Seeder
             'sub_featured_photos' => json_encode(['client-1-default.png', 'client-2-default.png', 'client-3-default.png']),
             'name_button' => 'Make An Appointment',
             'link_button' => 'frontend.contact',
-            'satisfied_customers' => 10000,
-            'created_at' => now(),
-            'updated_at' => now()
+            'satisfied_customers' => 10000
         ]);
     }
 }

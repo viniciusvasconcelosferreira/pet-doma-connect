@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Team;
+use App\Models\NewsletterSubscribers;
 use Illuminate\Http\Request;
 
-class TeamController extends Controller
+class NewsletterSubscribersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,13 +28,26 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|email|unique:newsletter_subscribers,email',
+        ]);
+
+        NewsletterSubscribers::create([
+            'email' => $request->email,
+        ]);
+
+        notyf()
+            ->position('x', 'right ')
+            ->position('y', 'top')
+            ->success('Inscrição realizada com sucesso!');
+
+        return redirect()->to(url()->previous() . '#subscribe');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Team $team)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +55,7 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Team $team)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +63,7 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Team $team)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +71,7 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team)
+    public function destroy(string $id)
     {
         //
     }

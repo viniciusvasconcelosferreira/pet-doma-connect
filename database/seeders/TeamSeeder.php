@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Service;
 use App\Models\Team;
-use DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -23,9 +21,7 @@ class TeamSeeder extends Seeder
                     ['type' => 'twitter', 'link' => 'https://twitter.com/'],
                     ['type' => 'instagram', 'link' => 'https://www.facebook.com'],
                 ]),
-                'photo' => 'team-home-1-default.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
+                'photo' => 'team-home-1-default.jpg'
             ],
             ['name' => 'Velma S. Barry',
                 'function' => 'Groomer Manager',
@@ -34,9 +30,7 @@ class TeamSeeder extends Seeder
                     ['type' => 'twitter', 'link' => 'https://twitter.com/'],
                     ['type' => 'instagram', 'link' => 'https://www.facebook.com'],
                 ]),
-                'photo' => 'team-home-2-default.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
+                'photo' => 'team-home-2-default.jpg'
             ],
             ['name' => 'Carol C. Queen',
                 'function' => 'Day-Care Manager',
@@ -45,9 +39,7 @@ class TeamSeeder extends Seeder
                     ['type' => 'twitter', 'link' => 'https://twitter.com/'],
                     ['type' => 'instagram', 'link' => 'https://www.facebook.com'],
                 ]),
-                'photo' => 'team-home-3-default.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
+                'photo' => 'team-home-3-default.jpg'
             ],
             ['name' => 'Julie K. Rusella',
                 'function' => 'Boarding Manager',
@@ -56,9 +48,7 @@ class TeamSeeder extends Seeder
                     ['type' => 'twitter', 'link' => 'https://twitter.com/'],
                     ['type' => 'instagram', 'link' => 'https://www.facebook.com'],
                 ]),
-                'photo' => 'team-home-4-default.jpg',
-                'created_at' => now(),
-                'updated_at' => now()
+                'photo' => 'team-home-4-default.jpg'
             ],
         ];
 

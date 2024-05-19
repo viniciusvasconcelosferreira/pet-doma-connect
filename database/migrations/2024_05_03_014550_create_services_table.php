@@ -19,7 +19,8 @@ return new class extends Migration {
             $table->text('details')->nullable();
             $table->string('icon')->nullable();
             $table->string('slug')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 
         Artisan::call('db:seed', array('--class' => ServiceSeeder::class));

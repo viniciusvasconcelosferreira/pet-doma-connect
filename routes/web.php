@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsletterSubscribersController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('frontend.')->group(function () {
@@ -19,6 +20,7 @@ Route::name('frontend.')->group(function () {
     Route::get('/contato', function () {
         return view('frontend.contact.contact');
     })->name('contact');
+    Route::post('/newsletter-subscribe', [NewsletterSubscribersController::class, 'store'])->name('newsletter.subscribe');
 });
 
 Route::get('/dashboard', function () {

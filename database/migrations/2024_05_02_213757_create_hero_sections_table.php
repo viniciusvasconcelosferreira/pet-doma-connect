@@ -20,7 +20,8 @@ return new class extends Migration {
             $table->string('name_button')->nullable();
             $table->string('link_button')->nullable();
             $table->integer('satisfied_customers')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 
         Artisan::call('db:seed', array('--class' => HeroSection::class));

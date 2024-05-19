@@ -24,9 +24,7 @@ class FeatureSeeder extends Seeder
                         ['icon' => 'features-4.svg', 'name' => 'Dental Care', 'describe' => "Routine cleanings and dental exams to maintain your pet's oral health."],
                     ]
                 ),
-                'image' => 'features-lg-default.png',
-                'created_at' => now(),
-                'updated_at' => now()
+                'image' => 'features-lg-default.png'
             ]
         ]);
     }

@@ -12,10 +12,11 @@
                         <div class="subscribe-content">
                             <p>{{__('Receive our updates')}}</p>
                             <h2>{{__('Helpful Hints for Keeping Your Pet Happy and Healthy')}}</h2>
-                            <div class="subscribe-form-box">
-                                <input class="form-control" type="email" placeholder="{{__('Your Mail Here')}}">
-                                <button class="btn btn-granny-apple-600">{{__('Subscribe')}}</button>
-                            </div>
+                            <form class="subscribe-form-box" method="post" action="{{route('frontend.newsletter.subscribe')}}">
+                                @csrf
+                                <input class="form-control" id="emai" name="email" type="email" placeholder="{{__('Your Mail Here')}}" required>
+                                <button class="btn btn-granny-apple-600" type="submit">{{__('Subscribe')}}</button>
+                            </form>
                         </div>
                     </div>
                 </div>

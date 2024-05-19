@@ -20,7 +20,8 @@ return new class extends Migration {
             $table->string('mission_subtitle')->nullable();
             $table->string('mission_description')->nullable();
             $table->json('client_photos')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
 
         Artisan::call('db:seed', array('--class' => AboutUsSeeder::class));

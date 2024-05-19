@@ -18,9 +18,7 @@ class GoalSeeder extends Seeder
                 ['counter' => 2, 'name' => 'Awards'],
                 ['counter' => 10, 'name' => 'Professionals'],
                 ['counter' => 5, 'name' => 'Years of experience']
-            ]),
-            'created_at' => now(),
-            'updated_at' => now()
+            ])
         ]);
     }
 }

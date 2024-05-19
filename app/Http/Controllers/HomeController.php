@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\ClientFeedbacks;
 use App\Models\Feature;
 use App\Models\Goal;
 use App\Models\HeroSection;
@@ -21,6 +22,7 @@ class HomeController extends Controller
         $features = Feature::first();
         $goals = Goal::first();
         $team = Team::take(4)->get();
-        return view('frontend.home.index', compact('active_sessions', 'hero_content', 'about_us', 'services', 'features', 'goals', 'team'));
+        $feedbacks = ClientFeedbacks::all();
+        return view('frontend.home.index', compact('active_sessions', 'hero_content', 'about_us', 'services', 'features', 'goals', 'team', 'feedbacks'));
     }
 }
