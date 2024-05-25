@@ -235,5 +235,8 @@
     "Our Blogs": "Nossos Artigos",
     "Featured Image": "Imagem de Destaque",
     "Featured Session Background": "Fundo da Sessão de Destaque",
-    ":name is Owner": "Dono(a) do :name"
+    ":name is Owner": "Dono(a) do :name",
+    "Closed": "Fechado",
+    "closed": "fechado",
+    "Select a service": "Selecione um serviço"
 }

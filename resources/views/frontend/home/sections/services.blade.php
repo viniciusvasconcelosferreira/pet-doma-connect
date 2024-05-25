@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="row">
-                @if(!empty($services))
-                    @foreach($services as $service)
+                @if(!empty($sample_services))
+                    @foreach($sample_services as $service)
                         <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
                             <div class="single-service">
                                 <div class="single-service-img">

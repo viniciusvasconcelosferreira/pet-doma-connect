@@ -18,5 +18,12 @@ class ContactInformation extends Model
         'cell_phone_is_whatsapp',
         'email',
         'address',
+        'operating_hours',
     ];
+
+    public function getOperatingHoursAttribute($value)
+    {
+        return json_decode($value, true);
+    }
+
 }

@@ -12,3 +12,41 @@ if (!function_exists('formatNumberShort')) {
         }
     }
 }
+
+if (!function_exists('sortOperatingHours')) {
+    function sortOperatingHours($operatingHours)
+    {
+        $daysOfWeek = [
+            'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
+        ];
+
+        $sortedOperatingHours = [];
+
+        foreach ($daysOfWeek as $day) {
+            if (isset($operatingHours[$day])) {
+                $sortedOperatingHours[$day] = $operatingHours[$day];
+            }
+        }
+
+        return $sortedOperatingHours;
+    }
+}
+
+if (!function_exists('extractPlatform')) {
+    function extractPlatform($url)
+    {
+        preg_match('/www\.(.*?)\.com/', $url, $matches);
+        return $matches[1] ?? null;
+    }
+}
+
+if (!function_exists('cleanAndFormatPhoneNumber')) {
+    function cleanAndFormatPhoneNumber($phoneNumber)
+    {
+        // Remove todos os caracteres não numéricos
+        $cleanedPhoneNumber = preg_replace('/\D/', '', $phoneNumber);
+
+        // Formate o número para o link do WhatsApp
+        return 'https://wa.me/' . $cleanedPhoneNumber;
+    }
+}
