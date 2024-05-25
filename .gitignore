@@ -209,4 +209,8 @@ auth.json
 # and uncomment the following lines
 # .pnp.*
 
+### Helpers ###
+
+_ide_helper.php
+
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains+all,phpstorm+all,laravel,yarn,composer
