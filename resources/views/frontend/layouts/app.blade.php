@@ -27,8 +27,16 @@
     <link rel="stylesheet" href="{{asset('assets/css/slick.css')}}">
     <!-- Style CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/preloader.css')}}">
 </head>
 <body>
+<!-- Loading screen -->
+<div id="preloader">
+    <div id="spinner" class="spinner large-icon">
+        <img alt="" src="{{asset('assets/images/13.gif')}}">
+        <h5 class="line-height-1 font-18">{{__('Loading...')}}</h5>
+    </div>
+</div>
 @yield('styles')
 @yield('content')
 @yield('scripts')
@@ -50,6 +58,21 @@
 <script src="{{asset('assets/js/fontawesome.min.js')}}"></script>
 <!-- Main Script -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+<script type="module">
+    // Função para mostrar a tela de carregamento
+    function showLoading() {
+        document.getElementById('preloader').style.display = 'block';
+    }
+
+    // Função para ocultar a tela de carregamento
+    function hideLoading() {
+        document.getElementById('preloader').style.display = 'none';
+    }
+
+    // Mostrar a tela de carregamento quando a página está carregando
+    window.addEventListener('load', hideLoading);
+    window.addEventListener('beforeunload', showLoading);
+</script>
 <script type="module">
     $(document).ready(function () {
         function formatPhoneNumber(inputValue) {

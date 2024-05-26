@@ -10,9 +10,9 @@ class SocialMediaService
     {
         $firstName = fake()->firstName();
         $lastName = fake()->lastName();
-        $username = Str::slug($firstName . $lastName);
+        $username = Str::slug($firstName.$lastName);
 
-        return $baseUrl . $username;
+        return $baseUrl.$username;
     }
 
     public static function facebook()

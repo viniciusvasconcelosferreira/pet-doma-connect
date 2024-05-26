@@ -23,7 +23,14 @@ Route::name('frontend.')->group(function () {
         return view('frontend.contact.contact');
     })->name('contact');
     Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-    Route::post('/newsletter-subscribe', [NewsletterSubscribersController::class, 'store'])->name('newsletter.subscribe');
+    Route::post('/newsletter-subscribe',
+        [NewsletterSubscribersController::class, 'store'])->name('newsletter.subscribe');
+    Route::get('/politica-de-privacidade', function () {
+        return view('frontend.terms_policies.privacy');
+    })->name('privacy');
+    Route::get('/termos-e-condicoes', function () {
+        return view('frontend.terms_policies.conditions');
+    })->name('conditions');
 });
 
 Route::get('/dashboard', function () {
@@ -45,8 +52,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/footer', [FooterController::class, 'edit'])->name('footer.edit');
-    Route::patch('/footer/social-media', [FooterController::class, 'updateSocialMedia'])->name('footer.social-media.update');
-    Route::patch('/footer/contact', [FooterController::class, 'updateContactInformation'])->name('footer.contact.update');
+    Route::patch('/footer/social-media',
+        [FooterController::class, 'updateSocialMedia'])->name('footer.social-media.update');
+    Route::patch('/footer/contact',
+        [FooterController::class, 'updateContactInformation'])->name('footer.contact.update');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

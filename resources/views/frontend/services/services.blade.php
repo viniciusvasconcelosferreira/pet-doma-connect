@@ -1,5 +1,6 @@
 @extends('frontend.layouts.app')
-@section('content')
+
+@section('styles')
     <style>
         .quadrado-2 {
             background-color: #eefbf4;
@@ -12,11 +13,14 @@
             width: 106px;
         }
 
-        .quadrado-2 > img{
+        .quadrado-2 > img {
             width: 75px;
             height: 75px;
         }
     </style>
+@endsection
+
+@section('content')
     <!-- Header Section Start -->
     @include('frontend.layouts.partials.header.header-alt')
     <!-- Header Section End -->
@@ -52,7 +56,7 @@
                             <p class="services-text">Pet grooming involves maintaining the hygiene and appearance of
                                 your furry friend.</p>
                             <a href="#" class="services-btn">{{__('View Details')}}<span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                                            class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-md-6 mb-4">
@@ -62,7 +66,7 @@
                             <p class="services-text">Pet grooming involves maintaining the hygiene and appearance of
                                 your furry friend.</p>
                             <a href="#" class="services-btn">{{__('View Details')}}<span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                                            class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-md-6 mb-4">
@@ -72,7 +76,7 @@
                             <p class="services-text">Pet grooming involves maintaining the hygiene and appearance of
                                 your furry friend.</p>
                             <a href="#" class="services-btn">{{__('View Details')}}<span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                                            class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-md-6 mb-4">
@@ -82,7 +86,7 @@
                             <p class="services-text">Pet grooming involves maintaining the hygiene and appearance of
                                 your furry friend.</p>
                             <a href="#" class="services-btn">{{__('View Details')}}<span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                                            class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-md-6 mb-4">
@@ -92,7 +96,7 @@
                             <p class="services-text">Pet grooming involves maintaining the hygiene and appearance of
                                 your furry friend.</p>
                             <a href="#" class="services-btn">{{__('View Details')}}<span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                                            class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-md-6 mb-4">
@@ -102,7 +106,7 @@
                             <p class="services-text">Pet grooming involves maintaining the hygiene and appearance of
                                 your furry friend.</p>
                             <a href="#" class="services-btn">{{__('View Details')}}<span><i
-                                        class="fa-solid fa-arrow-right"></i></span></a>
+                                            class="fa-solid fa-arrow-right"></i></span></a>
                         </div>
                     </div>
                 </div>

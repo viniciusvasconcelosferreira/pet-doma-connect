@@ -238,5 +238,6 @@
     ":name is Owner": "Dono(a) do :name",
     "Closed": "Fechado",
     "closed": "fechado",
-    "Select a service": "Selecione um serviço"
+    "Select a service": "Selecione um serviço",
+    "Loading...": "Carregando..."
 }

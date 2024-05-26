@@ -9,56 +9,27 @@
                         <h2>{{__('Our Recent Blogs')}}</h2>
                     </div>
                     <div>
-                        <a href="blog.html" class="btn btn-granny-apple-600-outline">{{__('View All')}}</a>
+                        <a href="{{route('frontend.blog')}}" class="btn btn-granny-apple-600-outline">{{__('View All')}}</a>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="single-blog">
-                        <div class="blog-top">
-                            <a href="blog-details.html" class="blog-img-box">
-                                <img src="{{asset('assets/images/blog-1.png')}}" alt="blog">
-                            </a>
-                            <div class="blog-cat">Grooming</div>
-                        </div>
-                        <div class="blog-content">
-                            <a class="blog-title" href="blog-details.html">Grooming your pet, what you need to
-                                know</a>
-                            <p class="blog-date">February 27, 2023</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="single-blog">
-                        <div class="blog-top">
-                            <a href="blog-details.html" class="blog-img-box">
-                                <img src="{{asset('assets/images/blog-2.png')}}" alt="blog">
-                            </a>
-                            <div class="blog-cat">Grooming</div>
-                        </div>
-                        <div class="blog-content">
-                            <a class="blog-title" href="blog-details.html">10 essential tips for keeping your pet
-                                healthy and happy</a>
-                            <p class="blog-date">February 28, 2023</p>
+                @foreach($most_recent_posts as $post)
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="single-blog">
+                            <div class="blog-top">
+                                <a href="blog-details.html" class="blog-img-box">
+                                    <img src="{{asset($post->full_thumbnail)}}" alt="blog">
+                                </a>
+                                <div class="blog-cat">{{$post->main_tag}}</div>
+                            </div>
+                            <div class="blog-content">
+                                <a class="blog-title" href="blog-details.html">{{$post->title}}</a>
+                                <p class="blog-date">{{ucwords(\Carbon\Carbon::parse($post->posted_at)->translatedFormat('d M, Y'))}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="single-blog">
-                        <div class="blog-top">
-                            <a href="blog-details.html" class="blog-img-box">
-                                <img src="{{asset('assets/images/blog-3.png')}}" alt="blog">
-                            </a>
-                            <div class="blog-cat">Grooming</div>
-                        </div>
-                        <div class="blog-content">
-                            <a class="blog-title" href="blog-details.html">Pet Nutrition Separating Fact from
-                                Fictions</a>
-                            <p class="blog-date">March 2, 2023</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

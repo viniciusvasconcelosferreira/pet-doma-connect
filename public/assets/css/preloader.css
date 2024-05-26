@@ -1,0 +1,36 @@
+/* Preloader styling */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 9999;
+}
+
+#spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 46%;
+    top: 44%;
+    width: 70px;
+    height: 70px;
+}
+
+/* Utility class for line height */
+.line-height-1 {
+    line-height: 1 !important;
+}
+
+/* Utility class for font size */
+.font-18 {
+    font-size: 18px !important;
+}
+
+/* Specific styling for h5 with both classes */
+h5.line-height-1.font-18 {
+    font-weight: 700;
+}

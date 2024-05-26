@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
+use App\Models\BlogPost;
 use App\Models\ClientFeedbacks;
 use App\Models\ContactInformation;
 use App\Models\Feature;
@@ -28,7 +29,11 @@ class HomeController extends Controller
         $contact = ContactInformation::first();
         $social_media = SocialMedia::first();
         $all_services = Service::all()->pluck('name')->toArray();
+        $most_recent_posts = BlogPost::select('slug', 'main_tag', 'title', 'thumbnail',
+            'posted_at')->orderBy('created_at', 'desc')->take(3)->get();
+
         return view('frontend.home.index', compact('active_sessions', 'hero_content',
-            'about_us', 'sample_services', 'features', 'goals', 'team', 'feedbacks', 'contact', 'social_media', 'all_services'));
+            'about_us', 'sample_services', 'features', 'goals', 'team', 'feedbacks', 'contact', 'social_media',
+            'all_services', 'most_recent_posts'));
     }
 }

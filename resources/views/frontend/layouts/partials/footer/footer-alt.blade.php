@@ -22,29 +22,29 @@
                 </div>
                 <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 mb-4 mb-lg-0">
                     <div class="footer-menu">
-                        <h2 class="menu-category">Quick Links</h2>
+                        <h2 class="menu-category">{{__('Quick Links')}}</h2>
                         <ul class="footer-menu-list">
-                            <li><a href="team.html">Our Team</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="team.html">{{__('Our Team')}}</a></li>
+                            <li><a href="about.html">{{__('About Us')}}</a></li>
+                            <li><a href="pricing.html">{{__('Pricing')}}</a></li>
+                            <li><a href="blog.html">{{__('Blog')}}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-4 mb-4 mb-sm-0">
                     <div class="footer-menu">
-                        <h2 class="menu-category">Legal</h2>
+                        <h2 class="menu-category">{{__('Legal')}}</h2>
                         <ul class="footer-menu-list">
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="{{route('frontend.contact')}}">Contact Us</a></li>
-                            <li><a href="#">Terms & Condition</a></li>
-                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="faq.html">{{__('FAQs')}}</a></li>
+                            <li><a href="{{route('frontend.contact')}}">{{__('Contact Us')}}</a></li>
+                            <li><a href="{{route('frontend.conditions')}}">{{__('Terms & Condition')}}</a></li>
+                            <li><a href="{{route('frontend.privacy')}}">{{__('Privacy & Policy')}}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-4 mb-4 mb-sm-0">
                     <div class="footer-menu">
-                        <h2 class="menu-category">Legal</h2>
+                        <h2 class="menu-category">{{__('Contact Us')}}</h2>
                         <ul class="contact-info-collection">
                             <li class="mb-4">
                                 <p><span><i class="fa-solid fa-phone"></i></span></p> +1 234 567 890
@@ -66,9 +66,9 @@
             <div class="footer-bottom">
                 <p class="footer-copyright">&copy; @php echo date('Y') @endphp PET D.O.M.A. {{__('All Rights Reserved')}}</p>
                 <div class="footer-bottom-link">
-                    <a href="#">Privay & Policy</a>
+                    <a href="{{route('frontend.privacy')}}">{{__('Privay & Policy')}}</a>
                     <p>|</p>
-                    <a href="#">Terms & Conditions</a>
+                    <a href="{{route('frontend.conditions')}}">{{__('Terms & Conditions')}}</a>
                 </div>
             </div>
         </div>

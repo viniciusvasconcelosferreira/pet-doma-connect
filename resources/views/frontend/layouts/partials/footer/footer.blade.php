@@ -15,50 +15,107 @@
                         </div>
                         <p>{{__('Pet care and veterinary services are crucial for maintaining the health and well-being of our beloved animal companions')}}</p>
                         <ul class="footer-social">
-                            <li><a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li><a href="https://www.linkedin.com/?original_referer="><i
-                                            class="fa-brands fa-linkedin-in"></i></a></li>
+                            @if($social_media->facebook)
+                                <li><a href="{{$social_media->facebook}}"><i
+                                                class="fa-brands fa-facebook-f"></i></a></li>
+                            @endif
+                            @if($social_media->twitter)
+                                <li><a href="{{$social_media->twitter}}"><i
+                                                class="fa-brands fa-twitter"></i></a></li>
+                            @endif
+                            @if($social_media->instagram)
+                                <li><a href="{{$social_media->instagram}}"><i
+                                                class="fa-brands fa-instagram"></i></a></li>
+                            @endif
+                            @if($social_media->linkedin)
+                                <li><a href="{{$social_media->linkedin}}"><i
+                                                class="fa-brands fa-linkedin-in"></i></a></li>
+                            @endif
+                            @if($social_media->youtube)
+                                <li><a href="{{$social_media->youtube}}"><i
+                                                class="fa-brands fa-youtube"></i></a></li>
+                            @endif
+                            @if($social_media->pinterest)
+                                <li><a href="{{$social_media->pinterest}}"><i
+                                                class="fa-brands fa-pinterest-p"></i></a></li>
+                            @endif
+                            @if($social_media->other)
+                                @php
+                                    $platform = extractPlatform($social_media->other);
+                                    $iconClass = $platform ? 'fa-brands fa-' . $platform : 'fa-solid fa-globe';
+                                @endphp
+                                <li><a href="{{$social_media->other}}"><i class="{{$iconClass}}"></i></a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-sm-6 mb-4">
                     <div class="footer-menu">
-                        <h2 class="menu-category">Quick Links</h2>
+                        <h2 class="menu-category">{{__('Quick Links')}}</h2>
                         <ul class="footer-menu-list">
-                            <li><a href="team.html">Our Team</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="team.html">{{__('Our Team')}}</a></li>
+                            <li><a href="about.html">{{__('About Us')}}</a></li>
+                            <li><a href="pricing.html">{{__('Pricing')}}</a></li>
+                            <li><a href="blog.html">{{__('Blog')}}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-sm-6 mb-4">
                     <div class="footer-menu">
-                        <h2 class="menu-category">Legal</h2>
+                        <h2 class="menu-category">{{__('Legal')}}</h2>
                         <ul class="footer-menu-list">
-                            <li><a href="faq.html">FAQs</a></li>
-                            <li><a href="{{route('frontend.contact')}}">Contact Us</a></li>
-                            <li><a href="#">Terms & Condition</a></li>
-                            <li><a href="#">Privacy & Policy</a></li>
+                            <li><a href="faq.html">{{__('FAQs')}}</a></li>
+                            <li><a href="{{route('frontend.contact')}}">{{__('Contact Us')}}</a></li>
+                            <li><a href="{{route('frontend.conditions')}}">{{__('Terms & Condition')}}</a></li>
+                            <li><a href="{{route('frontend.privacy')}}">{{__('Privacy & Policy')}}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="menu-category">Contact Us</h2>
+                        <h2 class="menu-category">{{__('Contact Us')}}</h2>
                         <ul class="contact-info-collection">
-                            <li class="mb-4">
-                                <p><span><i class="fa-solid fa-phone"></i></span></p> +1 234 567 890
-                            </li>
-                            <li class="mb-4">
-                                <p><span><i class="fa-regular fa-envelope"></i></span></p> purrwell@gmail.com
-                            </li>
-                            <li>
-                                <p><span><i class="fa-solid fa-location-dot"></i></span></p> 2092 Owen LaneFort
-                                Myers, FL 33901
-                            </li>
+                            @if($contact->phone_number)
+                                @if($contact->phone_is_whatsapp)
+                                    <a href="{{cleanAndFormatPhoneNumber($contact->phone_number)}}" target="_blank">
+                                        <li class="mb-4">
+                                            <p><span><i
+                                                            class="fa-solid fa-phone"></i></span>
+                                            </p> {{$contact->phone_number}}
+                                        </li>
+                                    </a>
+                                @else
+                                    <li class="mb-4">
+                                        <p><span><i class="fa-solid fa-phone"></i></span></p> {{$contact->phone_number}}
+                                    </li>
+                                @endif
+                            @endif
+                            @if($contact->cell_phone_number)
+                                @if($contact->cell_phone_is_whatsapp)
+                                    <a href="{{cleanAndFormatPhoneNumber($contact->cell_phone_number)}}"
+                                       target="_blank">
+                                        <li class="mb-4">
+                                            <p><span><i class="fa-solid fa-mobile-screen"></i></span>
+                                            </p> {{$contact->cell_phone_number}}
+                                        </li>
+                                    </a>
+                                @else
+                                    <li class="mb-4">
+                                        <p><span><i class="fa-solid fa-mobile-screen"></i></span>
+                                        </p> {{$contact->cell_phone_number}}
+                                    </li>
+                                @endif
+                            @endif
+                            @if($contact->email)
+                                <li class="mb-4">
+                                    <p><span><i class="fa-regular fa-envelope"></i></span></p> {{$contact->email}}
+                                </li>
+                            @endif
+                            @if($contact->address)
+                                <li>
+                                    <p><span><i class="fa-solid fa-location-dot"></i></span></p> {{$contact->address}}
+                                </li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -70,9 +127,9 @@
                 <p class="footer-copyright">&copy; @php echo date('Y') @endphp PET
                     D.O.M.A. {{__('All Rights Reserved')}}</p>
                 <div class="footer-bottom-link">
-                    <a href="#">{{__('Privay & Policy')}}</a>
+                    <a href="{{route('frontend.privacy')}}">{{__('Privay & Policy')}}</a>
                     <p>|</p>
-                    <a href="#">{{__('Terms & Conditions')}}</a>
+                    <a href="{{route('frontend.conditions')}}">{{__('Terms & Conditions')}}</a>
                 </div>
             </div>
         </div>
