@@ -16,50 +16,25 @@ class AizUploadController extends Controller
 {
     public function index(Request $request)
     {
-
-        $all_uploads = (auth()->user()->user_type == 'seller') ? Upload::where('user_id', auth()->user()->id) : Upload::query();
-        $search = null;
-        $sort_by = null;
-
-        if ($request->search != null) {
-            $search = $request->search;
-            $all_uploads->where('file_original_name', 'like', '%' . $request->search . '%');
-        }
-
+        $all_uploads = Upload::query();
+        $search = $request->search;
         $sort_by = $request->sort;
-        switch ($request->sort) {
-            case 'newest':
-                $all_uploads->orderBy('created_at', 'desc');
-                break;
-            case 'oldest':
-                $all_uploads->orderBy('created_at', 'asc');
-                break;
-            case 'smallest':
-                $all_uploads->orderBy('file_size', 'asc');
-                break;
-            case 'largest':
-                $all_uploads->orderBy('file_size', 'desc');
-                break;
-            default:
-                $all_uploads->orderBy('created_at', 'desc');
-                break;
+
+        if ($search) {
+            $all_uploads->where('file_original_name', 'like', '%'.$search.'%');
         }
 
-        $all_uploads = $all_uploads->paginate(60)->appends(request()->query());
+        $all_uploads = $this->applySorting($all_uploads, $sort_by);
 
+        $all_uploads = $all_uploads->paginate(60)->appends($request->query());
 
-        return (auth()->user()->user_type == 'seller')
-            ? view('seller.uploads.index', compact('all_uploads', 'search', 'sort_by'))
-            : view('backend.uploaded_files.index', compact('all_uploads', 'search', 'sort_by'));
+        return view('backend.uploaded_files.index', compact('all_uploads', 'search', 'sort_by'));
     }
 
     public function create()
     {
-        return (auth()->user()->user_type == 'seller')
-            ? view('seller.uploads.create')
-            : view('backend.uploaded_files.create');
+        return view('backend.uploaded_files.create');
     }
-
 
     public function show_uploader(Request $request)
     {
@@ -109,14 +84,6 @@ class AizUploadController extends Controller
             $upload = new Upload;
             $extension = strtolower($request->file('aiz_file')->getClientOriginalExtension());
 
-            if (
-                env('DEMO_MODE') == 'On' &&
-                isset($type[$extension]) &&
-                $type[$extension] == 'archive'
-            ) {
-                return '{}';
-            }
-
             if (isset($type[$extension])) {
                 $upload->file_original_name = null;
                 $arr = explode('.', $request->file('aiz_file')->getClientOriginalName());
@@ -124,7 +91,7 @@ class AizUploadController extends Controller
                     if ($i == 0) {
                         $upload->file_original_name .= $arr[$i];
                     } else {
-                        $upload->file_original_name .= "." . $arr[$i];
+                        $upload->file_original_name .= ".".$arr[$i];
                     }
                 }
 
@@ -147,9 +114,9 @@ class AizUploadController extends Controller
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 
                 // Get the MIME type of the file
-                $file_mime = finfo_file($finfo, base_path('public/') . $path);
+                $file_mime = finfo_file($finfo, base_path('public/').$path);
 
-                if ($type[$extension] == 'image' && get_setting('disable_image_optimization') != 1) {
+                if ($type[$extension] == 'image') {
                     try {
                         $manager = new ImageManager(new Driver());
                         $img = $manager->read($request->file('aiz_file')->getRealPath());
@@ -164,25 +131,11 @@ class AizUploadController extends Controller
                                 $constraint->aspectRatio();
                             });
                         }
-                        $img->save(base_path('public/') . $path);
+                        $img->save(base_path('public/').$path);
                         clearstatcache();
                         $size = $img->filesize();
                     } catch (\Exception $e) {
                         //dd($e);
-                    }
-                }
-
-                if (env('FILESYSTEM_DRIVER') == 's3') {
-                    Storage::disk('s3')->put(
-                        $path,
-                        file_get_contents(base_path('public/') . $path),
-                        [
-                            'visibility' => 'public',
-                            'ContentType' => $extension == 'svg' ? 'image/svg+xml' : $file_mime
-                        ]
-                    );
-                    if ($arr[0] != 'updates') {
-                        unlink(base_path('public/') . $path);
                     }
                 }
 
@@ -200,54 +153,30 @@ class AizUploadController extends Controller
     public function get_uploaded_files(Request $request)
     {
         $uploads = Upload::where('user_id', Auth::user()->id);
-        if ($request->search != null) {
-            $uploads->where('file_original_name', 'like', '%' . $request->search . '%');
+
+        if ($request->search) {
+            $uploads->where('file_original_name', 'like', '%'.$request->search.'%');
         }
-        if ($request->sort != null) {
-            switch ($request->sort) {
-                case 'newest':
-                    $uploads->orderBy('created_at', 'desc');
-                    break;
-                case 'oldest':
-                    $uploads->orderBy('created_at', 'asc');
-                    break;
-                case 'smallest':
-                    $uploads->orderBy('file_size', 'asc');
-                    break;
-                case 'largest':
-                    $uploads->orderBy('file_size', 'desc');
-                    break;
-                default:
-                    $uploads->orderBy('created_at', 'desc');
-                    break;
-            }
+
+        if ($request->sort) {
+            $uploads = $this->applySorting($uploads, $request->sort);
         }
-        return $uploads->paginate(60)->appends(request()->query());
+
+        return $uploads->paginate(60)->appends($request->query());
     }
 
     public function destroy($id)
     {
         $upload = Upload::findOrFail($id);
 
-        if (auth()->user()->user_type == 'seller' && $upload->user_id != auth()->user()->id) {
-            flash(translate("You don't have permission for deleting this!"))->error();
-            return back();
-        }
         try {
-            if (env('FILESYSTEM_DRIVER') == 's3') {
-                Storage::disk('s3')->delete($upload->file_name);
-                if (file_exists(public_path() . '/' . $upload->file_name)) {
-                    unlink(public_path() . '/' . $upload->file_name);
-                }
-            } else {
-                unlink(public_path() . '/' . $upload->file_name);
-            }
+            unlink(public_path().'/'.$upload->file_name);
+
             $upload->delete();
-            flash(translate('File deleted successfully'))->success();
         } catch (\Exception $e) {
             $upload->delete();
-            flash(translate('File deleted successfully'))->success();
         }
+
         return back();
     }
 
@@ -268,16 +197,18 @@ class AizUploadController extends Controller
         $ids = explode(',', $request->ids);
         $files = Upload::whereIn('id', $ids)->get();
         $new_file_array = [];
+
         foreach ($files as $file) {
-            $file['file_name'] = my_asset($file->file_name);
+            $file['file_name'] = app('url')->asset('public/'.$file->file_name);
+
             if ($file->external_link) {
                 $file['file_name'] = $file->external_link;
             }
+
             $new_file_array[] = $file;
         }
-        // dd($new_file_array);
+
         return $new_file_array;
-        // return $files;
     }
 
     public function all_file()
@@ -285,19 +216,10 @@ class AizUploadController extends Controller
         $uploads = Upload::all();
         foreach ($uploads as $upload) {
             try {
-                if (env('FILESYSTEM_DRIVER') == 's3') {
-                    Storage::disk('s3')->delete($upload->file_name);
-                    if (file_exists(public_path() . '/' . $upload->file_name)) {
-                        unlink(public_path() . '/' . $upload->file_name);
-                    }
-                } else {
-                    unlink(public_path() . '/' . $upload->file_name);
-                }
+                unlink(public_path().'/'.$upload->file_name);
                 $upload->delete();
-                flash(translate('File deleted successfully'))->success();
             } catch (\Exception $e) {
                 $upload->delete();
-                flash(translate('File deleted successfully'))->success();
             }
         }
 
@@ -306,7 +228,6 @@ class AizUploadController extends Controller
         return back();
     }
 
-    //Download project attachment
     public function attachment_download($id)
     {
         $project_attachment = Upload::find($id);
@@ -314,18 +235,35 @@ class AizUploadController extends Controller
             $file_path = public_path($project_attachment->file_name);
             return Response::download($file_path);
         } catch (\Exception $e) {
-            flash(translate('File does not exist!'))->error();
             return back();
         }
     }
 
-    //Download project attachment
     public function file_info(Request $request)
     {
         $file = Upload::findOrFail($request['id']);
 
-        return (auth()->user()->user_type == 'seller')
-            ? view('seller.uploads.info', compact('file'))
-            : view('backend.uploaded_files.info', compact('file'));
+        return view('backend.uploaded_files.info', compact('file'));
     }
+
+    public function applySorting($query, $sort_by)
+    {
+        switch ($sort_by) {
+            case 'oldest':
+                $query->orderBy('created_at', 'asc');
+                break;
+            case 'smallest':
+                $query->orderBy('file_size', 'asc');
+                break;
+            case 'largest':
+                $query->orderBy('file_size', 'desc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+                break;
+        }
+
+        return $query;
+    }
+
 }
