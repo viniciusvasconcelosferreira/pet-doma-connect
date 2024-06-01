@@ -1,3 +1,7 @@
+<!-- Scroll To Top Start -->
+<button id="scrollToTop" class="scrollToTop"><i class="fa-solid fa-arrow-up"></i></button>
+<!-- Scroll To Top End -->
+
 <!-- Footer Section Start -->
 <footer id="footer" class="footer footer-2">
     <div class="footer-area">
@@ -103,9 +107,11 @@
                                 @endif
                             @endif
                             @if($contact->email)
-                                <li class="mb-4">
-                                    <p><span><i class="fa-regular fa-envelope"></i></span></p> {{$contact->email}}
-                                </li>
+                                <a href="maito:{{$contact->email}}">
+                                    <li class="mb-4">
+                                        <p><span><i class="fa-regular fa-envelope"></i></span></p> {{$contact->email}}
+                                    </li>
+                                </a>
                             @endif
                             @if($contact->address)
                                 <li>

@@ -20,6 +20,7 @@ class BlogPostFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'content' => $this->faker->paragraph(),
+            'resume' => $this->faker->sentence(5),
             'main_tag' => $this->faker->word(),
             'secondary_tags' => json_encode($this->faker->words()),
             'thumbnail' => $default_thumbnails[array_rand($default_thumbnails)],

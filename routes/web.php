@@ -3,31 +3,36 @@
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\AizUploadController;
+use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterSubscribersController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('frontend.')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
     Route::get('/sobre', function () {
-        return view('frontend.about.about');
+        return view('frontend.about.index');
     })->name('about');
-    Route::get('/servicos', function () {
-        return view('frontend.services.services');
-    })->name('services');
-    Route::get('/blog', function () {
-        return view('frontend.blog.blog');
-    })->name('blog');
-    Route::get('/contato', function () {
-        return view('frontend.contact.contact');
-    })->name('contact');
-    Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+    Route::get('/servicos', [ServiceController::class, 'index'])->name('services');
+    Route::get('/servicos/{service:slug}', [ServiceController::class, 'show'])->name('services.show');
+
+    Route::get('/blog', [BlogPostController::class, 'index'])->name('blog');
+    Route::get('/blog/{post:slug}', [BlogPostController::class, 'show'])->name('blog.show');
+
+    Route::get('/contato', [ContactController::class, 'index'])->name('contact');
+    Route::post('/contato/enviar', [ContactController::class, 'store'])->name('contact.store');
+
     Route::post('/newsletter-subscribe',
         [NewsletterSubscribersController::class, 'store'])->name('newsletter.subscribe');
+
     Route::get('/politica-de-privacidade', function () {
         return view('frontend.terms_policies.privacy');
     })->name('privacy');
+
     Route::get('/termos-e-condicoes', function () {
         return view('frontend.terms_policies.conditions');
     })->name('conditions');

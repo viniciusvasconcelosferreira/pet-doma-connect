@@ -9,18 +9,18 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($team as $item)
+                @foreach($team as $member)
                     <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
                         <div class="single-team">
                             <div class="team-img-box">
-                                <img src="{{asset($item->full_photo)}}" alt="team">
+                                <img src="{{asset($member->full_photo)}}" alt="team">
                             </div>
                             <div class="team-content">
-                                <h3 class="team-name">{{$item->name}}</h3>
-                                <p class="team-designation">{{$item->function}}</p>
-                                @if(!empty($item->social_media))
+                                <h3 class="team-name">{{$member->name}}</h3>
+                                <p class="team-designation">{{$member->function}}</p>
+                                @if(!empty($member->social_media))
                                     <ul class="team-social">
-                                        @foreach(json_decode($item->social_media) as $social)
+                                        @foreach(json_decode($member->social_media) as $social)
                                             <li><a href="{{$social->link}}"><i class="fa-brands fa-{{$social->type}}"></i></a></li>
                                         @endforeach
                                     </ul>

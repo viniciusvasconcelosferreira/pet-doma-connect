@@ -17,7 +17,7 @@
             color: #667085;
         }
 
-        .bd-content-collection-2 li:before{
+        .bd-content-collection-2 li:before {
             content: counter(list, upper-alpha) ") ";
             counter-increment: list;
         }
@@ -44,20 +44,7 @@
     <!-- Header Section End -->
 
     <!-- Page Title Section Start -->
-    <div id="page-banner" class="page-banner section">
-        <div class="page-title-area">
-            <img src="{{asset('assets/images/banner-bg-1.svg')}}" alt="banner" class="banner-bg">
-            <div class="page-title-box">
-                <h2 class="page-title">{{__('Privacy Policy')}}</h2>
-                <nav style="--bs-breadcrumb-divider: '-';" aria-label="breadcrumb">
-                    <ol class="breadcrumb page-breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{route('frontend.home')}}">{{__('Home')}}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{__('Privacy Policy')}}</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-    </div>
+    @include('frontend.layouts.partials.page-title.page-title', ['title' => 'Privacy Policy', 'breadcrumb' => 'Privacy Policy'])
     <!-- Page Title Section End -->
 
     <div id="blog-details" class="blog-details section">
@@ -69,7 +56,8 @@
                             <h3 class="bd-content-title">Política Privacidade</h3>
                             <p class="bd-content-text">A sua privacidade é importante para nós. É política
                                 do Pet Doma respeitar a sua privacidade em relação a qualquer informação sua que
-                                possamos coletar no site <a href="#">Pet Doma</a>, e outros sites que possuímos e operamos.</p>
+                                possamos coletar no site <a href="#">Pet Doma</a>, e outros sites que possuímos e
+                                operamos.</p>
                         </div>
                         <div class="mb-0"><p class="bd-content-text">Solicitamos informações pessoais apenas quando
                                 realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e

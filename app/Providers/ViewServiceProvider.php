@@ -10,7 +10,11 @@ class ViewServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        View::composer(['frontend.layouts.partials.footer.footer', 'frontend.layouts.partials.footer.footer-alt'],
+        View::composer([
+            'frontend.home.index',
+            'frontend.layouts.partials.footer.footer',
+            'frontend.layouts.partials.footer.footer-alt'
+        ],
             FooterComposer::class);
     }
 

@@ -26,14 +26,12 @@ class HomeController extends Controller
         $goals = Goal::first();
         $team = Team::take(4)->get();
         $feedbacks = ClientFeedbacks::all();
-        $contact = ContactInformation::first();
-        $social_media = SocialMedia::first();
         $all_services = Service::all()->pluck('name')->toArray();
         $most_recent_posts = BlogPost::select('slug', 'main_tag', 'title', 'thumbnail',
             'posted_at')->orderBy('created_at', 'desc')->take(3)->get();
 
         return view('frontend.home.index', compact('active_sessions', 'hero_content',
-            'about_us', 'sample_services', 'features', 'goals', 'team', 'feedbacks', 'contact', 'social_media',
+            'about_us', 'sample_services', 'features', 'goals', 'team', 'feedbacks',
             'all_services', 'most_recent_posts'));
     }
 }

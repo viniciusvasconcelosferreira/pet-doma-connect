@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Pluralizer::useLanguage('portuguese');
         Carbon::setLocale('pt');
-        Paginator::useBootstrapFive();
+        Paginator::useBootstrapFour();
     }
 }

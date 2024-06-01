@@ -18,6 +18,7 @@ class BlogPost extends Model
         'thumbnail',
         'featured_image',
         'content',
+        'resume',
         'secondary_tags',
         'slug',
         'is_active',
@@ -54,5 +55,10 @@ class BlogPost extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

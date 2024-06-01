@@ -5335,7 +5335,7 @@ label {
 }
 
 .single-team-member .teams-img-box .teams-socials li a:hover {
-    background: #ff5b2e;
+    background: #19825c;
     color: #fff;
 }
 
@@ -5357,7 +5357,7 @@ label {
 }
 
 .single-team-member .teams-content-box .teams-member-name:hover {
-    color: #ff5b2e;
+    color: #19825c;
 }
 
 .single-team-member .teams-content-box .teams-member-designation {
@@ -6725,7 +6725,7 @@ label {
     line-height: 150%;
     color: #667085;
     padding: 5px 12px;
-    background: #ffded5;
+    background: #dff9ec;
     border-radius: 50px;
 }
 

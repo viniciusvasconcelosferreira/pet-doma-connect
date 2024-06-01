@@ -27,7 +27,7 @@
                                 <a class="nav-link @if(request()->routeIs('frontend.services')) active @endif" href="{{route('frontend.services')}}">{{__('Services')}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @if(request()->routeIs('frontend.blog')) active @endif" href="{{route('frontend.blog')}}">{{__('Blogs')}}</a>
+                                <a class="nav-link @if(request()->routeIs(['frontend.blog','frontend.blog.show'])) active @endif" href="{{route('frontend.blog')}}">{{__('Blogs')}}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link @if(request()->routeIs('frontend.contact')) active @endif" href="{{route('frontend.contact')}}">{{__('Contact')}}</a>

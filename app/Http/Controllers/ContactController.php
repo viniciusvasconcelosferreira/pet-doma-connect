@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\ContactInformation;
+use App\Models\Faq;
+use App\Models\Service;
+use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -12,7 +16,18 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contact = ContactInformation::first();
+        $social_media = SocialMedia::first();
+        $all_services = Service::all()->pluck('name')->toArray();
+        $faqs = Faq::inRandomOrder()->take(6)->get();
+
+        $formatter = new \NumberFormatter('en-US', \NumberFormatter::SPELLOUT);
+
+        foreach ($faqs as $key => $faq) {
+            $faq->formatted_key = ucwords($formatter->format($key + 1));
+        }
+
+        return view('frontend.contact.contact', compact('contact', 'social_media', 'all_services', 'faqs'));
     }
 
     /**
@@ -46,7 +61,7 @@ class ContactController extends Controller
             ->position('y', 'top')
             ->success('Contato enviado com sucesso!');
 
-        return redirect()->to(url()->previous() . '#home-contact');
+        return redirect()->to(url()->previous().'#home-contact');
     }
 
     /**

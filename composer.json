@@ -13,7 +13,8 @@
         "nesbot/carbon": "^3.3",
         "php-flasher/flasher-notyf-laravel": "^2.0",
         "spatie/laravel-sluggable": "^3.6",
-        "ext-fileinfo": "*"
+        "ext-fileinfo": "*",
+        "ext-intl": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.0",

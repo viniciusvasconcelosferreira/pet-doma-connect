@@ -107,9 +107,12 @@
                                 @endif
                             @endif
                             @if($contact->email)
-                                <li class="mb-4">
-                                    <p><span><i class="fa-regular fa-envelope"></i></span></p> {{$contact->email}}
-                                </li>
+                                <a href="maito:{{$contact->email}}">
+                                    <li class="mb-4">
+                                        <p><span><i class="fa-regular fa-envelope"></i></span>
+                                        </p> {{$contact->email}}
+                                    </li>
+                                </a>
                             @endif
                             @if($contact->address)
                                 <li>

@@ -18,13 +18,13 @@
                     <div class="col-md-6 col-lg-4 mb-4">
                         <div class="single-blog">
                             <div class="blog-top">
-                                <a href="blog-details.html" class="blog-img-box">
+                                <a href="{{route('frontend.blog.show',$post->slug)}}" class="blog-img-box">
                                     <img src="{{asset($post->full_thumbnail)}}" alt="blog">
                                 </a>
                                 <div class="blog-cat">{{$post->main_tag}}</div>
                             </div>
                             <div class="blog-content">
-                                <a class="blog-title" href="blog-details.html">{{$post->title}}</a>
+                                <a class="blog-title" href="{{route('frontend.blog.show',$post->slug)}}">{{$post->title}}</a>
                                 <p class="blog-date">{{ucwords(\Carbon\Carbon::parse($post->posted_at)->translatedFormat('d M, Y'))}}</p>
                             </div>
                         </div>

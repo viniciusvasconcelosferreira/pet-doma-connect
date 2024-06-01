@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('title');
             $table->string('thumbnail');
             $table->string('featured_image');
+            $table->string('resume', 104);
             $table->text('content');
             $table->json('secondary_tags')->nullable();
             $table->string('slug')->unique();
