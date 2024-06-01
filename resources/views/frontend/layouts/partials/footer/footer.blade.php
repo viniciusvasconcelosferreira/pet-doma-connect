@@ -11,7 +11,7 @@
                 <div class="col-xl-5 col-sm-6 mb-4">
                     <div class="footer-content">
                         <div class="footer-logo">
-                            <img src="{{asset('assets/images/icons/logo-footer.svg')}}" alt="logo">
+                            <img src="{{asset('assets/images/logo-pet-doma-footer.svg')}}" alt="logo" style="width: 177px">
                         </div>
                         <p>{{__('Pet care and veterinary services are crucial for maintaining the health and well-being of our beloved animal companions')}}</p>
                         <ul class="footer-social">
