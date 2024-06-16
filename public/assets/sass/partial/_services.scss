@@ -14,6 +14,10 @@
     -moz-transition: 0.3s ease all;
     -ms-transition: 0.3s ease all;
     -o-transition: 0.3s ease all;
+    display: flex;
+    flex-direction: column;
+    min-height: 276px;
+    justify-content: space-between;
 
     .single-service-title {
         font-family: 'Syne';

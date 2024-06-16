@@ -11,7 +11,7 @@
                 <div class="col-xl-5 col-sm-6 mb-4">
                     <div class="footer-content">
                         <div class="footer-logo">
-                            <img src="{{asset('assets/images/logo-pet-doma-footer.svg')}}" alt="logo" style="width: 177px">
+                            <img src="{{asset('assets/images/logo-pet-doma-footer-v2.svg')}}" alt="logo" style="width: 177px">
                         </div>
                         <p>{{__('Pet care and veterinary services are crucial for maintaining the health and well-being of our beloved animal companions')}}</p>
                         <ul class="footer-social">
@@ -54,9 +54,9 @@
                         <h2 class="menu-category">{{__('Quick Links')}}</h2>
                         <ul class="footer-menu-list">
                             <li><a href="team.html">{{__('Our Team')}}</a></li>
-                            <li><a href="about.html">{{__('About Us')}}</a></li>
+                            <li><a href="{{route('frontend.about')}}">{{__('About Us')}}</a></li>
                             <li><a href="pricing.html">{{__('Pricing')}}</a></li>
-                            <li><a href="blog.html">{{__('Blog')}}</a></li>
+                            <li><a href="{{route('frontend.blog')}}">{{__('Blog')}}</a></li>
                         </ul>
                     </div>
                 </div>

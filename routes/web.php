@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\AizUploadController;
@@ -17,17 +18,28 @@ Route::name('frontend.')->group(function () {
         return view('frontend.about.index');
     })->name('about');
 
-    Route::get('/servicos', [ServiceController::class, 'index'])->name('services');
-    Route::get('/servicos/{service:slug}', [ServiceController::class, 'show'])->name('services.show');
+    Route::controller(AboutController::class)->group(function () {
+        Route::get('/sobre', 'index')->name('about');
+    });
 
-    Route::get('/blog', [BlogPostController::class, 'index'])->name('blog');
-    Route::get('/blog/{post:slug}', [BlogPostController::class, 'show'])->name('blog.show');
+    Route::controller(ServiceController::class)->group(function () {
+        Route::get('/servicos', 'index')->name('services');
+        Route::get('/servicos/{service:slug}', 'show')->name('services.show');
+    });
 
-    Route::get('/contato', [ContactController::class, 'index'])->name('contact');
-    Route::post('/contato/enviar', [ContactController::class, 'store'])->name('contact.store');
+    Route::controller(BlogPostController::class)->group(function () {
+        Route::get('/blog', 'index')->name('blog');
+        Route::get('/blog/{post:slug}', 'show')->name('blog.show');
+    });
 
-    Route::post('/newsletter-subscribe',
-        [NewsletterSubscribersController::class, 'store'])->name('newsletter.subscribe');
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contato', 'index')->name('contact');
+        Route::post('/contato/enviar', 'store')->name('contact.store');
+    });
+
+    Route::controller(NewsletterSubscribersController::class)->group(function () {
+        Route::post('/newsletter-subscribe', 'store')->name('newsletter.subscribe');
+    });
 
     Route::get('/politica-de-privacidade', function () {
         return view('frontend.terms_policies.privacy');

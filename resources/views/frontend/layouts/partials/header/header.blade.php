@@ -6,7 +6,7 @@
                 <div class="container-fluid">
                     <a class="navbar-brand header-logo" href="{{route('frontend.home')}}">
                         <div class="">
-                            <img id="header-logo" src="{{asset('assets/images/logo-pet-doma.svg')}}" alt="logo" style="width: 177px">
+                            <img id="header-logo" src="{{asset('assets/images/logo-pet-doma-v2.svg')}}" alt="logo" style="width: 177px">
                         </div>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

@@ -6,8 +6,7 @@
                 <div class="container-fluid">
                     <a class="navbar-brand header-logo" href="{{route('frontend.home')}}">
                         <div class="">
-{{--                            <img id="header-logo" src="assets/images/icons/logo.svg" alt="logo">--}}
-                            <img id="header-logo" src="{{asset('assets/images/logo.png')}}" alt="logo">
+                            <img id="header-logo" src="{{asset('assets/images/logo-pet-doma-v2.svg')}}" alt="logo" style="width: 177px">
                         </div>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -31,22 +30,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link @if(request()->routeIs('frontend.contact')) active @endif" href="{{route('frontend.contact')}}">{{__('Contact')}}</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                   aria-expanded="false">
-                                    Pages
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="pricing.html">Pricing</a></li>
-                                    <li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
-                                    <li><a class="dropdown-item" href="services.html">Services</a></li>
-                                    <li><a class="dropdown-item" href="team.html">Team</a></li>
-                                    <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-                                    <li><a class="dropdown-item" href="sign-in.html">Sign In</a></li>
-                                    <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                                    <li><a class="dropdown-item" href="404.html">Error Page</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>

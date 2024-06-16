@@ -69,9 +69,11 @@
     @include('frontend.layouts.partials.team.team-alt')
     <!-- Team Section End -->
 
-    <!-- Testimonial Section Start -->
-    @include('frontend.home.sections.testimonial')
-    <!-- Testimonial Section End -->
+    @if(!empty($feedbacks))
+        <!-- Testimonial Section Start -->
+        @include('frontend.home.sections.testimonial')
+        <!-- Testimonial Section End -->
+    @endif
 
     <!-- Subscribe Section Start -->
     @include('frontend.layouts.partials.subscribe.subscribe-alt')

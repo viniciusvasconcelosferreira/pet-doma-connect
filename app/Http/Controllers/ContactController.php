@@ -27,7 +27,7 @@ class ContactController extends Controller
             $faq->formatted_key = ucwords($formatter->format($key + 1));
         }
 
-        return view('frontend.contact.contact', compact('contact', 'social_media', 'all_services', 'faqs'));
+        return view('frontend.contact.index', compact('contact', 'social_media', 'all_services', 'faqs'));
     }
 
     /**

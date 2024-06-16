@@ -1,4 +1,21 @@
 @extends('frontend.layouts.app')
+@section('styles')
+    <style>
+        .single-blog.single-blog-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 514px;
+        }
+
+        .single-blog.single-blog-2 > .blog-content {
+            min-height: 234px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Header Section Start -->
     @include('frontend.layouts.partials.header.header-alt')

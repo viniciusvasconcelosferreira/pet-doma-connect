@@ -4615,9 +4615,9 @@ label {
 .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #ff5b2e;
+    border-color: #19825c;
     outline: 0;
-    border: 1px solid #ff5b2e;
+    border: 1px solid #19825c;
     box-shadow: none;
 }
 
@@ -4705,6 +4705,10 @@ label {
     font-size: 18px;
     font-family: Inter;
     line-height: 26px;
+}
+
+.navbar-expand-xl .navbar-nav .nav-link:hover {
+    color: #19825c;
 }
 
 .navbar-expand-xl .navbar-nav .active {
@@ -5010,6 +5014,10 @@ label {
     -moz-transition: 0.3s ease all;
     -ms-transition: 0.3s ease all;
     -o-transition: 0.3s ease all;
+    display: flex;
+    flex-direction: column;
+    min-height: 276px;
+    justify-content: space-between;
 }
 
 .single-service .single-service-title {
@@ -5784,7 +5792,7 @@ label {
 }
 
 .blog-btn:hover {
-    color: #ff5b2e;
+    color: #19825c;
 }
 
 .single-blog .blog-content .blog-title {
@@ -5833,6 +5841,7 @@ label {
     background: #19825c;
     border-radius: 50%;
     color: #fff;
+    flex-shrink: 0;
 }
 
 .working-hours-box {
@@ -6142,6 +6151,10 @@ label {
     font-size: 16px;
     line-height: 26px;
     color: #ffffff;
+}
+
+.footer-menu-list li a:hover {
+    color: #19825c;
 }
 
 .footer-menu-list {
