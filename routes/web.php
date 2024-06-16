@@ -64,15 +64,17 @@ Route::controller(AizUploadController::class)->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::controller(ProfileController::class)->group(function () {
+        Route::get('/profile', 'edit')->name('profile.edit');
+        Route::patch('/profile', 'update')->name('profile.update');
+        Route::delete('/profile', 'destroy')->name('profile.destroy');
+    });
 
-    Route::get('/footer', [FooterController::class, 'edit'])->name('footer.edit');
-    Route::patch('/footer/social-media',
-        [FooterController::class, 'updateSocialMedia'])->name('footer.social-media.update');
-    Route::patch('/footer/contact',
-        [FooterController::class, 'updateContactInformation'])->name('footer.contact.update');
+    Route::controller(FooterController::class)->group(function () {
+        Route::get('/footer', 'edit')->name('footer.edit');
+        Route::patch('/footer/social-media', 'updateSocialMedia')->name('footer.social-media.update');
+        Route::patch('/footer/contact', 'updateContactInformation')->name('footer.contact.update');
+    });
 });
 
 require __DIR__.'/auth.php';
