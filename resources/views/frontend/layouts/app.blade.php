@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PET D.O.M.A | Clínica veterinária e Pet shop</title>
+    <title>@yield('title', 'Clínica veterinária e Pet shop | PET D.O.M.A')</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{asset('assets/images/favicon.png')}}">
     <!-- Syne Google Font -->
@@ -65,6 +65,7 @@
 
     // Mostrar a tela de carregamento quando a página está carregando
     window.addEventListener('load', hideLoading);
+    window.addEventListener('pageshow', hideLoading);
     window.addEventListener('beforeunload', showLoading);
 </script>
 <script type="module">

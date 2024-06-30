@@ -2,36 +2,67 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AboutUs;
-use App\Models\BlogPost;
-use App\Models\ClientFeedbacks;
-use App\Models\ContactInformation;
-use App\Models\Feature;
-use App\Models\Goal;
-use App\Models\HeroSection;
-use App\Models\HomeSections;
-use App\Models\Service;
-use App\Models\SocialMedia;
-use App\Models\Team;
+use App\Services\AboutUsService;
+use App\Services\BlogPostService;
+use App\Services\ClientFeedbackService;
+use App\Services\FeatureService;
+use App\Services\GoalService;
+use App\Services\HeroSectionService;
+use App\Services\HomeSectionService;
+use App\Services\ServiceService;
+use App\Services\TeamService;
 
 class HomeController extends Controller
 {
+
+    protected $homeSectionService;
+    protected $heroSectionService;
+    protected $aboutUsService;
+    protected $serviceService;
+    protected $featureService;
+    protected $goalService;
+    protected $teamService;
+    protected $clientFeedbackService;
+    protected $blogPostService;
+
+    public function __construct(
+        HomeSectionService $homeSectionService,
+        HeroSectionService $heroSectionService,
+        AboutUsService $aboutUsService,
+        ServiceService $serviceService,
+        FeatureService $featureService,
+        GoalService $goalService,
+        TeamService $teamService,
+        ClientFeedbackService $clientFeedbackService,
+        BlogPostService $blogPostService
+    ) {
+        $this->homeSectionService = $homeSectionService;
+        $this->heroSectionService = $heroSectionService;
+        $this->aboutUsService = $aboutUsService;
+        $this->serviceService = $serviceService;
+        $this->featureService = $featureService;
+        $this->goalService = $goalService;
+        $this->teamService = $teamService;
+        $this->clientFeedbackService = $clientFeedbackService;
+        $this->blogPostService = $blogPostService;
+    }
+
     public function index()
     {
-        $active_sessions = HomeSections::where('is_active', true)->get();
-        $hero_content = HeroSection::first();
-        $about_us = AboutUs::first();
-        $sample_services = Service::take(4)->get();
-        $features = Feature::first();
-        $goals = Goal::first();
-        $team = Team::take(4)->get();
-        $feedbacks = ClientFeedbacks::all();
-        $all_services = Service::all()->pluck('name')->toArray();
-        $most_recent_posts = BlogPost::select('slug', 'main_tag', 'title', 'thumbnail',
-            'posted_at')->orderBy('created_at', 'desc')->take(3)->get();
+        $active_sessions = $this->homeSectionService->getActiveSections();
+        $hero_content = $this->heroSectionService->getHeroContent();
+        $about_us = $this->aboutUsService->getAboutUs();
+        $sample_services = $this->serviceService->getSampleServices();
+        $features = $this->featureService->getFeatures();
+        $goals = $this->goalService->getGoals();
+        $team = $this->teamService->getTeam();
+        $feedbacks = $this->clientFeedbackService->getClientFeedbacks();
+        $all_services = $this->serviceService->getAllServiceNames();
+        $most_recent_posts = $this->blogPostService->getMostRecentPosts();
 
-        return view('frontend.home.index', compact('active_sessions', 'hero_content',
-            'about_us', 'sample_services', 'features', 'goals', 'team', 'feedbacks',
-            'all_services', 'most_recent_posts'));
+        return view('frontend.home.index',
+            compact('active_sessions', 'hero_content', 'about_us', 'sample_services', 'features', 'goals', 'team',
+                'feedbacks', 'all_services', 'most_recent_posts'
+            ));
     }
 }

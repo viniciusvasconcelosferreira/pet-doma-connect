@@ -6,37 +6,42 @@ use App\Models\ClientFeedbacks;
 use App\Models\Goal;
 use App\Models\Service;
 use App\Models\Team;
-use Illuminate\Http\Request;
+use App\Services\ClientFeedbackService;
+use App\Services\GoalService;
+use App\Services\ServiceService;
+use App\Services\TeamService;
 
 class ServiceController extends Controller
 {
+    protected $serviceService;
+    protected $teamService;
+    protected $goalService;
+    protected $clientFeedbackService;
+
+    public function __construct(
+        ServiceService $serviceService,
+        TeamService $teamService,
+        GoalService $goalService,
+        ClientFeedbackService $clientFeedbackService
+    ) {
+        $this->serviceService = $serviceService;
+        $this->teamService = $teamService;
+        $this->goalService = $goalService;
+        $this->clientFeedbackService = $clientFeedbackService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $services = Service::all();
-        $team = Team::take(4)->get();
-        $goals = Goal::first();
-        $feedbacks = ClientFeedbacks::all();
+        $services = $this->serviceService->getAllServices();
+        $team = $this->teamService->getTeam();
+        $goals = $this->goalService->getGoals();
+        $feedbacks = $this->clientFeedbackService->getClientFeedbacks();
+        $title = 'Serviços | PET D.O.M.A';
 
-        return view('frontend.services.index', compact('services', 'team', 'goals', 'feedbacks'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('frontend.services.index', compact('services', 'team', 'goals', 'feedbacks', 'title'));
     }
 
     /**
@@ -44,32 +49,8 @@ class ServiceController extends Controller
      */
     public function show(string $slug)
     {
-        $service = Service::where('slug', $slug)->firstOrFail();
+        $service = $this->serviceService->getServiceBySlug($slug);
 
         return view('frontend.services.show', compact('service'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

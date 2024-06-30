@@ -1,5 +1,7 @@
 @extends('frontend.layouts.app')
 
+@section('title', $title)
+
 @section('styles')
     <style>
         .quadrado-2 {

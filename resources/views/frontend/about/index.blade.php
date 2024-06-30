@@ -1,4 +1,7 @@
 @extends('frontend.layouts.app')
+
+@section('title', $title)
+
 @section('content')
     <!-- Header Section Start -->
     @include('frontend.layouts.partials.header.header-alt')

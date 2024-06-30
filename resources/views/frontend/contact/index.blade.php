@@ -1,4 +1,7 @@
 @extends('frontend.layouts.app')
+
+@section('title', $title)
+
 @section('content')
     <style>
         .working-hours-box .working-collection li .day-name {

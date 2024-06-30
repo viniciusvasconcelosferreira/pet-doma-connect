@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Services\SocialMediaService;
+use App\Services\SocialMediaUrlGenerator;
 use DB;
 use Illuminate\Database\Seeder;
 
@@ -14,13 +14,13 @@ class SocialMediaSeeder extends Seeder
     public function run(): void
     {
         DB::table('social_media')->insert([
-            'facebook' => SocialMediaService::facebook(),
-            'twitter' => SocialMediaService::twitter(),
-            'instagram' => SocialMediaService::instagram(),
-            'linkedin' => SocialMediaService::linkedin(),
-            'youtube' => SocialMediaService::youtube(),
-            'pinterest' => SocialMediaService::pinterest(),
-            'other' => SocialMediaService::other(),
+            'facebook' => SocialMediaUrlGenerator::facebook(),
+            'twitter' => SocialMediaUrlGenerator::twitter(),
+            'instagram' => SocialMediaUrlGenerator::instagram(),
+            'linkedin' => SocialMediaUrlGenerator::linkedin(),
+            'youtube' => SocialMediaUrlGenerator::youtube(),
+            'pinterest' => SocialMediaUrlGenerator::pinterest(),
+            'other' => SocialMediaUrlGenerator::other(),
         ]);
     }
 }
